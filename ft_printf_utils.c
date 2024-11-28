@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:49:00 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/11/28 17:55:49 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:03:43 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,15 +59,14 @@ size_t	ft_putnbr(int n)
 
 	if (n == -2147483648)
 		return (ft_putstr("-2147483648"));
+	nbr = n;
 	if (n < 0)
 	{
+		nbr = -nbr;
 		ft_putchar('-');
-		
 	}
+	if (nbr >= 10)
+		ft_putnbr(nbr / 10);
+	ft_putchar(nbr % 10 + '0');
 	return (num_len(n));
-}
-
-int	main(void)
-{
-	__builtin_printf("%zu\n", ft_putnbr(-2147483648));
 }
