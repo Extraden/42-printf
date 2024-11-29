@@ -6,10 +6,11 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:49:25 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/11/28 20:10:05 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/11/29 14:52:47 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stdarg.h>
 #include <stdlib.h>
 
@@ -27,16 +28,15 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format != '%')
 			len += ft_putchar(*format);
-		else if (*format == '%')
+		else if (*format == '%' && *(format + 1))
 		{
 			format++;
 			if (*format == '%')
 			{
 				len += ft_putchar('%');
-				format++;
 			}
 			else
-				ft_parse(ap, *format);
+				len += ft_parse(ap, *format);
 		}
 		format++;
 	}
@@ -44,11 +44,9 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	int	i = 55;
-	char str[] = "NATHAN LE BG";
-	char c = 'X';
-	ft_printf("Hello, number is %d\n%s\n%c", i, str, c);
+	ft_printf("Hello, number is %%");
 
 }
+*/

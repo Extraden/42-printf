@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parse.c                                         :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 15:56:14 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/11/29 14:28:06 by dsemenov         ###   ########.fr       */
+/*   Created: 2024/11/29 14:24:31 by dsemenov          #+#    #+#             */
+/*   Updated: 2024/11/29 14:35:20 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdarg.h>
-#include <stddef.h>
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
+#include <stdarg.h>
+#include <unistd.h>
+
+int	ft_printf(const char *format, ...);
 size_t   ft_putchar(char c);
 size_t  ft_putstr(char *s);
 size_t   num_len(int n);
 size_t   ft_putnbr(int n);
+int  ft_parse(va_list ap, const char c);
 
-int	ft_parse(va_list ap, const char c)
-{
-	size_t	len;
-
-	len = 0;
-	if (c == 'c' || c == '%')
-		len += ft_putchar(va_arg(ap, int));
-	else if (c == 's')
-		len += ft_putstr(va_arg(ap, char *));
-	else if (c == 'd' || c == 'i')
-		len += ft_putnbr(va_arg(ap, int));
-	return (len);
-}
+#endif
