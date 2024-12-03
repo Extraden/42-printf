@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:56:14 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/11/29 14:28:06 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/03 16:23:56 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int	ft_parse(va_list ap, const char c)
 		len += ft_putstr(va_arg(ap, char *));
 	else if (c == 'd' || c == 'i')
 		len += ft_putnbr(va_arg(ap, int));
+	else if (c == 'u')
+		len += ft_unsigned_putnbr(va_arg(ap, unsigned int));
 	return (len);
 }

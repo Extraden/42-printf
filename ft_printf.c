@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:49:25 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/11/29 14:52:47 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:54:02 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int	ft_printf(const char *format, ...)
 	return (len);
 }
 
-/*int	main(void)
+/*
+int	main(void)
 {
-	ft_printf("Hello, number is %%");
+	__builtin_printf("%d\n", ft_printf("%u", 42949672));
+	__builtin_printf("%d\n", __builtin_printf("%u", 42949672));
 
 }
 */

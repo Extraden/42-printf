@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:49:00 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/11/29 14:27:51 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:57:34 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,15 @@ size_t	ft_putnbr(int n)
 		ft_putnbr(nbr / 10);
 	ft_putchar(nbr % 10 + '0');
 	return (num_len(n));
+}
+
+size_t	ft_unsigned_putnbr(unsigned int n)
+{
+	size_t	len;
+
+	len = 0;
+	if (n >= 10)
+		len += ft_unsigned_putnbr(n / 10);
+	len += ft_putchar(n % 10 + '0');
+	return (len);
 }
