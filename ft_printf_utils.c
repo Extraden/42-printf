@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:49:00 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/04 14:05:51 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:42:36 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,17 @@ size_t	ft_puthex(unsigned int nbr, char *base)
 	len = 0;
 	if (nbr >= 16)
 		len += ft_puthex(nbr / 16, base);
+	len += ft_putchar(base[nbr % 16]);
+	return (len);
+}
+
+size_t	ft_putptr(unsigned long nbr, char *base)
+{
+	size_t	len;
+
+	len = 0;
+	if (nbr >= 16)
+		len += ft_putptr(nbr / 16, base);
 	len += ft_putchar(base[nbr % 16]);
 	return (len);
 }

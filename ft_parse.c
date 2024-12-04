@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:56:14 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/04 13:57:41 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:44:30 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,18 @@ int	ft_parse(va_list ap, const char c)
 			len += ft_puthex(va_arg(ap, int), "0123456789abcdef");
 	else if (c == 'X')
 			len += ft_puthex(va_arg(ap, int), "0123456789ABCDEF");
+	else if (c == 'p')
+	{
+		void *ptr;
+
+		ptr = va_arg(ap, void *);
+		if (!ptr)
+			len += write(1, "(nil)", 5);
+		else
+		{
+			len += write(1, "0x", 2);
+			len += ft_putptr((unsigned long) ptr, "0123456789abcdef");
+		}
+	}
 	return (len);
 }
