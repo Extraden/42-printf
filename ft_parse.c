@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:56:14 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/04 15:44:30 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:55:04 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 #include <stdarg.h>
 #include <stddef.h>
 
-size_t   ft_putchar(char c);
-size_t  ft_putstr(char *s);
-size_t   num_len(int n);
-size_t   ft_putnbr(int n);
+size_t	ft_putchar(char c);
+size_t	ft_putstr(char *s);
+size_t	num_len(int n);
+size_t	ft_putnbr(int n);
 size_t	ft_puthex(unsigned int nbr, char *base);
 
 int	ft_parse(va_list ap, const char c)
 {
 	size_t	len;
+	void	*ptr;
 
 	len = 0;
 	if (c == 'c' || c == '%')
@@ -34,13 +35,11 @@ int	ft_parse(va_list ap, const char c)
 	else if (c == 'u')
 		len += ft_unsigned_putnbr(va_arg(ap, unsigned int));
 	else if (c == 'x')
-			len += ft_puthex(va_arg(ap, int), "0123456789abcdef");
+		len += ft_puthex(va_arg(ap, int), "0123456789abcdef");
 	else if (c == 'X')
-			len += ft_puthex(va_arg(ap, int), "0123456789ABCDEF");
+		len += ft_puthex(va_arg(ap, int), "0123456789ABCDEF");
 	else if (c == 'p')
 	{
-		void *ptr;
-
 		ptr = va_arg(ap, void *);
 		if (!ptr)
 			len += write(1, "(nil)", 5);

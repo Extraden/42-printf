@@ -6,20 +6,20 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:49:00 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/04 15:42:36 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/04 15:47:53 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 #include <stddef.h>
- 
+
 size_t	ft_putchar(char c)
 {
 	return (write(1, &c, 1));
 }
 
-size_t  ft_putstr(char *s)
+size_t	ft_putstr(char *s)
 {
 	size_t	i;
 
