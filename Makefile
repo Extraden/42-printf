@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-OBJS = ft_printf.o ft_parse.o ft_printf_utils.o
+OBJS = ft_printf.o ft_parse.o ft_num_ptr_functions.o ft_str_functions.o
 
 all: $(NAME)
 

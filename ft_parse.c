@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:56:14 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/04 15:55:04 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:18:17 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,26 @@ size_t	num_len(int n);
 size_t	ft_putnbr(int n);
 size_t	ft_puthex(unsigned int nbr, char *base);
 
+static size_t	ft_parse_ptr(void *ptr)
+{
+	size_t	length;
+	void	*pointer;
+
+	length = 0;
+	pointer = ptr;
+	if (!pointer)
+		length += write(1, "(nil)", 5);
+	else
+	{
+		length += write(1, "0x", 2);
+		length += ft_putptr((unsigned long) pointer, "0123456789abcdef");
+	}
+	return (length);
+}
+
 int	ft_parse(va_list ap, const char c)
 {
 	size_t	len;
-	void	*ptr;
 
 	len = 0;
 	if (c == 'c' || c == '%')
@@ -40,14 +56,7 @@ int	ft_parse(va_list ap, const char c)
 		len += ft_puthex(va_arg(ap, int), "0123456789ABCDEF");
 	else if (c == 'p')
 	{
-		ptr = va_arg(ap, void *);
-		if (!ptr)
-			len += write(1, "(nil)", 5);
-		else
-		{
-			len += write(1, "0x", 2);
-			len += ft_putptr((unsigned long) ptr, "0123456789abcdef");
-		}
+		len += ft_parse_ptr(va_arg(ap, void *));
 	}
 	return (len);
 }
