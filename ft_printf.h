@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 14:24:31 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/03 19:10:19 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:54:23 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ size_t   num_len(int n);
 size_t   ft_putnbr(int n);
 size_t  ft_unsigned_putnbr(unsigned int n);
 int  ft_parse(va_list ap, const char c);
-size_t	ft_puthex(unsigned int nbr);
+size_t	ft_puthex(unsigned int nbr, char *base);
 
 #endif

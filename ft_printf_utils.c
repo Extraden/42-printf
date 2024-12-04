@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:49:00 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/03 19:10:55 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/04 14:05:51 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ size_t  ft_putstr(char *s)
 {
 	size_t	i;
 
+	if (!s)
+		s = "(null)";
 	i = 0;
 	while (s[i])
 	{
@@ -82,14 +84,13 @@ size_t	ft_unsigned_putnbr(unsigned int n)
 	return (len);
 }
 
-size_t	ft_puthex(unsigned int nbr)
+size_t	ft_puthex(unsigned int nbr, char *base)
 {
 	size_t	len;
-	char	base[16] = "0123456789ABCDEF";
 
 	len = 0;
 	if (nbr >= 16)
-		len += ft_puthex(nbr / 16);
+		len += ft_puthex(nbr / 16, base);
 	len += ft_putchar(base[nbr % 16]);
 	return (len);
 }
