@@ -4,14 +4,16 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
+HEADER = ft_printf.h
+
 OBJS = ft_printf.o ft_parse.o ft_num_ptr_functions.o ft_str_functions.o
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) 
 	ar rcs $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:19:22 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/04 18:28:24 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/09 12:57:43 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,17 @@ size_t	ft_putchar(char c)
 
 size_t	ft_putstr(char *s)
 {
+	size_t	res;
 	size_t	i;
 
 	if (!s)
 		s = "(null)";
 	i = 0;
+	res = 0;
 	while (s[i])
 	{
-		ft_putchar(s[i]);
+		res += ft_putchar(s[i]);
 		i++;
 	}
-	return (i);
+	return (res);
 }

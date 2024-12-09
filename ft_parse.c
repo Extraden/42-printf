@@ -6,20 +6,19 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:56:14 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/04 18:18:17 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/06 14:17:49 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
-#include <stddef.h>
 
-size_t	ft_putchar(char c);
+/*size_t	ft_putchar(char c);
 size_t	ft_putstr(char *s);
 size_t	num_len(int n);
 size_t	ft_putnbr(int n);
 size_t	ft_puthex(unsigned int nbr, char *base);
-
+*/
 static size_t	ft_parse_ptr(void *ptr)
 {
 	size_t	length;
