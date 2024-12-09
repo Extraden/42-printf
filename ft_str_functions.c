@@ -6,11 +6,12 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 18:19:22 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/09 12:57:43 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/09 13:14:38 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <unistd.h>
 
 size_t	ft_putchar(char c)
 {

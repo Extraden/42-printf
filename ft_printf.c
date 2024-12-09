@@ -6,16 +6,12 @@
 /*   By: dsemenov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:49:25 by dsemenov          #+#    #+#             */
-/*   Updated: 2024/12/04 18:26:20 by dsemenov         ###   ########.fr       */
+/*   Updated: 2024/12/09 13:04:06 by dsemenov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdarg.h>
-#include <stdlib.h>
-
-int		ft_parse(va_list ap, const char c);
-size_t	ft_putchar(char c);
 
 int	ft_printf(const char *format, ...)
 {
